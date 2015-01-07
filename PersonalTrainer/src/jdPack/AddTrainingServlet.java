@@ -21,7 +21,7 @@ public class AddTrainingServlet extends HttpServlet {
 		
 		Queue queue = QueueFactory.getDefaultQueue();
 		// Ajout d’une tache simple
-		TaskOptions task=TaskOptions.Builder.withUrl("/worker").param(key, value);
+		TaskOptions task=TaskOptions.Builder.withUrl("/worker").param("key", "value");
 		 queue.add(task);
 		// Ajout d’une tache simple avec des paramètres de configuration 
 		Map<String, String> headers=new HashMap<String, String>();
