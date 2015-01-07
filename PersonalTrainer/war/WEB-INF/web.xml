@@ -16,6 +16,16 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>initS</servlet-name>
+		<servlet-class>jdPack.InitServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>initS</servlet-name>
+		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>Home</servlet-name>
 		<servlet-class>jdPack.HomeServlet</servlet-class>
 	</servlet>

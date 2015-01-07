@@ -12,16 +12,22 @@
     <title>Hello App Engine</title>
   </head>
 
-  <body>
+  <body onload="loaded()">
     <h1>Hello App Engine!</h1>
 	
-    <table>
-      <tr>
-        <td colspan="2" style="font-weight:bold;">Available Servlets:</td>        
-      </tr>
-      <tr>
-        <td><a href="personaltrainer">PersonalTrainer</a></td>
-      </tr>
-    </table>
+    <div class="container">
+		<div class="container">
+			<h1>Hello!</h1>
+			<p id="homeMessage"></p>
+			<p>
+				<a class="btn btn-primary btn-lg" href="#" role="button">Learn
+					more &raquo;</a>
+			</p>
+		</div>
+	</div>
+    
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

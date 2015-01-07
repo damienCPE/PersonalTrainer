@@ -17,6 +17,11 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.Filter;
+import com.google.appengine.api.datastore.Query.FilterPredicate;
+import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.memcache.AsyncMemcacheService;
 import com.google.appengine.api.memcache.ErrorHandlers;
 import com.google.appengine.api.memcache.MemcacheService;
@@ -45,20 +50,23 @@ public class HomeServlet extends HttpServlet {
 			if (value == null) {
 				//datastorage
 				DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-				Entity HomeMessage = new Entity("HomeMessage");
-				HomeMessage.setProperty("message","Voici le message de la page home");
-				datastore.put(HomeMessage);
-				Key homeMessageKey = HomeMessage.getKey(); 
-				try {
-					Entity homeMessage2 = datastore.get(homeMessageKey);
-					value = homeMessage2.getProperty("message").toString();
-				} catch (EntityNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 				
+				Filter homeMessageFilter =
+						  new FilterPredicate("type",
+						                      FilterOperator.EQUAL,
+						                      "homeMessage");
+				
+				Query q = new Query("Message").setFilter(homeMessageFilter);
+				// Récupération du résultat de la requète à l’aide de PreparedQuery  
+				PreparedQuery pq = datastore.prepare(q); 
+				 
+				for (Entity result : pq.asIterable()) {
+				  value = (String) result.getProperty("content");
+				}
+
 				syncCache.put(key, value); // Mise à jour du cache
 			}
+			
 			// Méthode de cache asynchrone
 			AsyncMemcacheService asyncCache = MemcacheServiceFactory
 					.getAsyncMemcacheService();
@@ -76,6 +84,8 @@ public class HomeServlet extends HttpServlet {
 				// jusqu’à ce la fin de l’action
 				asyncCache.put(key, value);
 			}
+			
+			resp.getWriter().println(value);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
