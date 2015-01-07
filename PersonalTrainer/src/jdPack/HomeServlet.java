@@ -38,9 +38,9 @@ public class HomeServlet extends HttpServlet {
 		props.put(GCacheFactory.EXPIRATION_DELTA, 3600);
 		props.put(MemcacheService.SetPolicy.ADD_ONLY_IF_NOT_PRESENT, true);
 		try {
-			String key = "objKey1"; // Définir la clé de la valeur à stocker
-			String value = "myValue1"; // Définir l'objet à stocker
-			// Méthode de cache synchrone
+			String key = "homeMessage"; // Dï¿½finir la clï¿½ de la valeur ï¿½ stocker
+			String value = "myValue1"; // Dï¿½finir l'objet ï¿½ stocker
+			// Mï¿½thode de cache synchrone
 			MemcacheService syncCache = MemcacheServiceFactory
 					.getMemcacheService();
 			syncCache.setErrorHandler(ErrorHandlers
@@ -57,31 +57,31 @@ public class HomeServlet extends HttpServlet {
 						                      "homeMessage");
 				
 				Query q = new Query("Message").setFilter(homeMessageFilter);
-				// Récupération du résultat de la requète à l’aide de PreparedQuery  
+				// Rï¿½cupï¿½ration du rï¿½sultat de la requï¿½te ï¿½ lï¿½aide de PreparedQuery  
 				PreparedQuery pq = datastore.prepare(q); 
 				 
 				for (Entity result : pq.asIterable()) {
 				  value = (String) result.getProperty("content");
 				}
 
-				syncCache.put(key, value); // Mise à jour du cache
+				syncCache.put(key, value); // Mise ï¿½ jour du cache
 			}
 			
-			// Méthode de cache asynchrone
+			// Mï¿½thode de cache asynchrone
 			AsyncMemcacheService asyncCache = MemcacheServiceFactory
 					.getAsyncMemcacheService();
 			asyncCache.setErrorHandler(ErrorHandlers
 					.getConsistentLogAndContinue(Level.INFO));
 			Future<Object> futureValue = asyncCache.get(key); // Lecture depuis
 																// le cache
-			// ... Executation de tache en parallèle de la recherche dans le
+			// ... Executation de tache en parallï¿½le de la recherche dans le
 			// cache
 			value = (String) futureValue.get();
 			if (value == null) {
-				// récupération de la valeur et exécution de son code ….
-				// Mise à jour du cache asynchrone
-				// Retourne Future<Void> qui peut être utilisé pour bloquer
-				// jusqu’à ce la fin de l’action
+				// rï¿½cupï¿½ration de la valeur et exï¿½cution de son code ï¿½.
+				// Mise ï¿½ jour du cache asynchrone
+				// Retourne Future<Void> qui peut ï¿½tre utilisï¿½ pour bloquer
+				// jusquï¿½ï¿½ ce la fin de lï¿½action
 				asyncCache.put(key, value);
 			}
 			
