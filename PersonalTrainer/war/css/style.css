@@ -15,3 +15,10 @@
 	background-color: #F7931E;
 }
 
+#results {
+	margin-top: -80px;
+}
+
+#results label {
+	margin-left: 10px;
+}

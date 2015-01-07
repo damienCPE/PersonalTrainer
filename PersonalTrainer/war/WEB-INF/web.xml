@@ -44,6 +44,26 @@
 		<url-pattern>/addTraining</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>initSports</servlet-name>
+		<servlet-class>jdPack.InitSports</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>initSports</servlet-name>
+		<url-pattern>/initSports</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Search</servlet-name>
+		<servlet-class>jdPack.SearchServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Search</servlet-name>
+		<url-pattern>/search</url-pattern>
+	</servlet-mapping>
+
 	<!-- Default page to serve -->
 	<welcome-file-list>
 		<welcome-file>form.html</welcome-file>

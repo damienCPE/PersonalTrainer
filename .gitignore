@@ -77,6 +77,8 @@ Temporary Items
 
 .classpath
 PersonalTrainer/war/WEB-INF/lib/*
+PersonalTrainer/war/WEB-INF/appengine-generated/*
+
 *.class
 !*.java
 !*/
