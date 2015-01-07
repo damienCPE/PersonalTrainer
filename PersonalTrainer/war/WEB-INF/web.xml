@@ -33,6 +33,16 @@
 		<servlet-name>Home</servlet-name>
 		<url-pattern>/home</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AddTraining</servlet-name>
+		<servlet-class>jdPack.AddTrainingServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AddTraining</servlet-name>
+		<url-pattern>/addTraining</url-pattern>
+	</servlet-mapping>
 
 	<!-- Default page to serve -->
 	<welcome-file-list>
