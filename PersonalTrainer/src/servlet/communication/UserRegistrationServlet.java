@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONObject;
-
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.labs.repackaged.org.json.JSONException;
+import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
 public class UserRegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -62,7 +62,12 @@ public class UserRegistrationServlet extends HttpServlet {
 			JSONObject jsonToSend;
 			jsonToSend=new JSONObject();
 			
-			jsonToSend.put("userid", employee.getKey().getId());
+			try {
+				jsonToSend.put("userid", employee.getKey().getId());
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			//Send the Json object to the web browser
 			PrintWriter out= response.getWriter();
