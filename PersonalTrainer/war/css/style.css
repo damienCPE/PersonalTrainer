@@ -16,9 +16,13 @@
 }
 
 #results {
-	margin-top: -80px;
+	margin-top: 20px;
 }
 
 #results label {
 	margin-left: 10px;
+}
+
+html {
+	height: 150%;
 }

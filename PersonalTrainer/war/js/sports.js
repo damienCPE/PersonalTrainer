@@ -16,9 +16,9 @@ function displayContent(response)
     	}
     	results.innerHTML += "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
     		+ "<button type=\"submit\" class=\"btn btn-default btn-lg img-thumbnail\">"
-        	+ "<img src=\""+ response[i] +".jpg\" class= \"img-thumbnail\" alt=\"Picture not found\" />"
+        	+ "<img src=\"img/"+ response[i].img +".jpg\" class= \"img-thumbnail\" alt=\"Picture not found\" />"
         	+ "</button>"
-        	+ "<label> "+ i +" </label>"
+        	+ "<label> "+ response[i].name +" </label>"
         	+ "</div>";
     	counter++;
     }
