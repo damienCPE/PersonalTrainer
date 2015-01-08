@@ -65,10 +65,11 @@ public class TrainingQueueServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
-	    
+	    System.out.println(req.getParameter("training"));
 	    JSONObject json;
 		try {
 			json = new JSONObject(req.getParameter("training"));
+			System.out.println(json);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

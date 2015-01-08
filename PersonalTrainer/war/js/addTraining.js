@@ -1,20 +1,42 @@
 var training = {
-	"title" : "",
-	"desciption" : "",
-	"domain" : "",
-	"exercices" : [ {
-		"title" : "",
-		"desciption" : "",
-		"time" : 0
-	} ],
-	"time" : 0
-}
+	"training" : {
+		"title" : "Le titre",
+		"description" : "La description",
+		"domaineId" : "13556777",
+		"exercices" : [ {
+			"title" : "Titre exercice",
+			"description" : "Description exercice",
+			"time" : 1,
+			"repetitions" : 1,
+			"trainingId" : 0
+		}, {
+			"title" : "Titre exercice",
+			"description" : "Description exercice",
+			"time" : 1,
+			"repetitions" : 1,
+			"trainingId" : 0
+		}, {
+			"title" : "Titre exercice",
+			"description" : "Description exercice",
+			"time" : 1,
+			"repetitions" : 1,
+			"trainingId" : 0
+		} ]
+	}
+};
 
 var addTraining = function() {
-	training.title = document.getElementById('inputTitle').value;
-	training.description = document.getElementById('inputDescription').value;
-	training.domain = document.getElementById('e1').value;
-	training.time = document.getElementById('totalTimeValue').value;
+	// alert('start');
+	training.training.title = document.getElementById('inputTitle').value;
+	training.training.description = document.getElementById('inputDescription').value;
+	training.training.domainId = document.getElementById('e1').value;
+	/*
+	 * console.log(training); alert(training);
+	 */
+	$.get("trainingQueue", {
+		"training" : training
+	});
+
 }
 
 var beforeAddTraining = function() {
@@ -27,8 +49,13 @@ var addExercice = function() {
 		"desciption" : document.getElementById('exerciceDescription').value,
 		"time" : document.getElementById('timeHours').value
 				+ document.getElementById('timeMinutes').value
-				+ document.getElementById('timeSecondes').value
+				+ document.getElementById('timeSecondes').value,
+		"repetitions" : 10
 	});
+}
+
+var updateExercice = function() {
+
 }
 
 var removeTraining = function() {
@@ -38,3 +65,23 @@ var removeTraining = function() {
 var updateTime = function() {
 
 }
+
+var updateSportList = function() {
+	alert("fvdn");
+	$.get("http://localhost:8888/search", function(data) {
+		// displayContent(data);
+
+		var response = JSON.parse(data);
+		var myselect = document.getElementById('myselect');
+		console.log(response[0]);
+		for ( var i in response) {
+
+			var objOption = document.createElement("option");
+			objOption.text = response[i];
+			objOption.value = response[i];
+
+			// myselect.add(objOption);
+			myselect.options.add(response[i]);
+		}
+	})
+};

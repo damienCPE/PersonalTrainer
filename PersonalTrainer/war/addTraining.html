@@ -8,13 +8,10 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-      <link href="lib/select2-3.5.1/select2.css" rel="stylesheet">
-      
-    <link href="css/js.css" rel="stylesheet">
-      
+      <link href="css/select2.css" rel="stylesheet">      
 
   </head>
-  <body>
+  <body onload = updateSportList()>
       
       <!-- ------------------------------------------- HEADER ZONE ------------------------------------------- -->
       <nav class="navbar navbar-inverse" role="navigation">
@@ -33,15 +30,15 @@
         </div>
       </nav>
       <!-- ------------------------------------------- HEADER ZONE END ------------------------------------------- -->
-      
-      <form role="form">
+    
+      <form role="form" onsubmit="return false;">
           <div class="row" style="margin-bottom:10px">
               <div class=" col-md-1 col-sm-0 col-xs-0 " ></div>
              <div class=" col-md-2 col-sm-2 col-xs-12 ">
                 <label for="inputTitle">Title</label>  
              </div>
             <div class=" col-md-6 col-sm-6 col-xs-12 ">
-                <input type="email" class="form-control" id="inputTitle" placeholder="Enter your Training plan title">
+                <input class="form-control" id="inputTitle" placeholder="Enter your Training plan title">
              </div>
               <div class=" col-md-3 col-sm-4 hidden-xs">
                   <div class=" col-md-4 col-sm-4 hidden-xs">
@@ -82,7 +79,7 @@
               
               <div class="row">
                   <div class=" col-md-1 col-sm-1 col-xs-1 " >
-                       <button type="button" class="btn btn-success">Add an Exercice</button>
+                       <button type="button" class="btn btn-success" onclick="addExercice">Add an Exercice</button>
                    </div>
                  <div class=" col-md-12 col-sm-12 col-xs-12 " ></div>
               </div>
@@ -153,8 +150,8 @@
     <div class=" col-md-2 ol-sm-0 col-xs-0 " ></div>
     <div class=" col-md-10 ol-sm-5 col-xs-0 " ></div>
     <div class=" col-md-2 ol-sm-5 col-xs-12 text-center" >
-        <button type="submit" class="btn btn-danger btn-sm"> <span class="glyphicon glyphicon-remove"></span> </button>
-        <button type="submit" class="btn btn-success btn-lg"> <span class="glyphicon glyphicon-ok"></span> </button>
+        <button class="btn btn-danger btn-sm" > <span class="glyphicon glyphicon-remove"></span> </button>
+        <button class="btn btn-success btn-lg" onclick="addTraining()"> <span class="glyphicon glyphicon-ok"></span> </button>
     </div>
 
  
@@ -174,10 +171,11 @@
       <!-- ------------------------------------------- FOOTER ZONE END ------------------------------------------- -->
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/addTraining.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="lib/select2-3.5.1/select2.min.js"></script>
+    <script src="js/select2.min.js"></script>
     <script>
         $(document).ready(function() { $("#e1").select2(); });
     </script>
