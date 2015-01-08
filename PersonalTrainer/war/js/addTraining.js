@@ -2,16 +2,11 @@ var training = {
 	"title" : "",
 	"desciption" : "",
 	"domain" : "",
-	"exercices" : [
-	{
-	"title" : "",
-	"desciption" : "",
-	"time" : [ {
-		"hour" : 0,
-		"minutes" : 0,
-		"secondes" : 0
-	}
-	],
+	"exercices" : [ {
+		"title" : "",
+		"desciption" : "",
+		"time" : 0
+	} ],
 	"time" : 0
 }
 
@@ -27,7 +22,13 @@ var beforeAddTraining = function() {
 }
 
 var addExercice = function() {
-	
+	training.exercices.push({
+		"title" : document.getElementById('titleDescription').value,
+		"desciption" : document.getElementById('exerciceDescription').value,
+		"time" : document.getElementById('timeHours').value
+				+ document.getElementById('timeMinutes').value
+				+ document.getElementById('timeSecondes').value
+	});
 }
 
 var removeTraining = function() {

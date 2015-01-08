@@ -43,6 +43,16 @@
 		<servlet-name>AddTraining</servlet-name>
 		<url-pattern>/addTraining</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>TrainingQueue</servlet-name>
+		<servlet-class>jdPack.TrainingQueueServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>TrainingQueue</servlet-name>
+		<url-pattern>/trainingQueue</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>initSports</servlet-name>
