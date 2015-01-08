@@ -72,16 +72,16 @@ var updateSportList = function() {
 		// displayContent(data);
 
 		var response = JSON.parse(data);
-		var myselect = document.getElementById('myselect');
+		var myselect = document.getElementById('e1');
 		console.log(response[0]);
 		for ( var i in response) {
 
 			var objOption = document.createElement("option");
-			objOption.text = response[i];
-			objOption.value = response[i];
+			objOption.text = response[i].name;
+			objOption.value = response[i].id;
 
 			// myselect.add(objOption);
-			myselect.options.add(response[i]);
+			myselect.options.add(objOption);
 		}
 	})
 };
