@@ -33,6 +33,24 @@
 		<servlet-name>Home</servlet-name>
 		<url-pattern>/home</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Search</servlet-name>
+		<servlet-class>jdPack.SearchServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Search</servlet-name>
+		<url-pattern>/search</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>InitSports</servlet-name>
+		<servlet-class>jdPack.InitSports</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InitSports</servlet-name>
+		<url-pattern>/initSports</url-pattern>
+	</servlet-mapping>
 	
 	<servlet>
 		<servlet-name>AddTraining</servlet-name>
