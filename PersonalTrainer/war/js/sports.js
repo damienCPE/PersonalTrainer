@@ -1,6 +1,6 @@
 var results = document.getElementById("results");
 
-function displayContent(response)
+function displaySportsContent(response)
 {
 	response = JSON.parse(response);
 	results.innerHTML = "";
@@ -25,5 +25,6 @@ function displayContent(response)
 }
 
 $.get("http://localhost:8888/search", function(data) {
-	displayContent(data);
+//	console.log("sports.js");
+	displaySportsContent(data);
 });
