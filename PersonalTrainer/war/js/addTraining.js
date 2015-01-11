@@ -26,16 +26,33 @@ var training = {
 };
 
 var addTraining = function() {
-	// alert('start');
+/*	// alert('start');
 	training.training.title = document.getElementById('inputTitle').value;
 	training.training.description = document.getElementById('inputDescription').value;
 	training.training.domainId = document.getElementById('e1').value;
 	/*
 	 * console.log(training); alert(training);
-	 */
+	 
 	$.get("trainingQueue", {
 		"training" : training
 	});
+*/	
+	$.fn.serializeObject = function()
+	{
+	    var o = {};
+	    var a = this.serializeArray();
+	    $.each(a, function() {
+	        if (o[this.name] !== undefined) {
+	            if (!o[this.name].push) {
+	                o[this.name] = [o[this.name]];
+	            }
+	            o[this.name].push(this.value || '');
+	        } else {
+	            o[this.name] = this.value || '';
+	        }
+	    });
+	    return o;
+	};
 
 }
 

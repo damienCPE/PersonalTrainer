@@ -31,14 +31,14 @@
       </nav>
       <!-- ------------------------------------------- HEADER ZONE END ------------------------------------------- -->
     
-      <form role="form" onsubmit="return false;">
+      <form id="formAddTraining" role="form" onsubmit="return false;" name="training">
           <div class="row" style="margin-bottom:10px">
               <div class=" col-md-1 col-sm-0 col-xs-0 " ></div>
              <div class=" col-md-2 col-sm-2 col-xs-12 ">
                 <label for="inputTitle">Title</label>  
              </div>
             <div class=" col-md-6 col-sm-6 col-xs-12 ">
-                <input class="form-control" id="inputTitle" placeholder="Enter your Training plan title">
+                <input class="form-control" id="inputTitle" placeholder="Enter your Training plan title" name="title">
              </div>
               <div class=" col-md-3 col-sm-4 hidden-xs">
                   <div class=" col-md-4 col-sm-4 hidden-xs">
@@ -53,7 +53,7 @@
             </div>
             <div class=" col-md-6 col-sm-6 col-xs-12 ">
                 <!--<input type="email" class="form-control" id="inputDescription" placeholder="Enter your Training plan Description">-->
-                <textarea id="inputDescription" class="form-control" rows="4"></textarea>
+                <textarea id="inputDescription" class="form-control" rows="4" name="description"></textarea>
             </div>
         </div>
         <div class="row" style="margin-top:10px">
@@ -63,7 +63,7 @@
             </div>
             <div class=" col-md-6 col-sm-6 col-xs-12 " >
                 <p>
-                    <select id="e1" class="select2-container populate" style="width:100%">
+                    <select id="e1" class="select2-container populate" style="width:100%" name="domaineId">
 
                     </select>
                 </p>
