@@ -25,6 +25,14 @@ var training = {
 	}
 };
 
+//$(function() {
+//    $('form').submit(function() {
+//    	
+////        $('#result').text(JSON.stringify($('form').serializeObject()));
+////        return false;
+//    });
+//});
+
 var addTraining = function() {
 /*	// alert('start');
 	training.training.title = document.getElementById('inputTitle').value;
@@ -36,11 +44,18 @@ var addTraining = function() {
 	$.get("trainingQueue", {
 		"training" : training
 	});
-*/	
-	$.fn.serializeObject = function()
+	
+*/	alert('start');
+	JSON.stringify($('#formAddTraining').serializeObject());
+
+	
+}
+$.fn.serializeObject = function()
 	{
 	    var o = {};
 	    var a = this.serializeArray();
+	    //console.log(this);
+	    console.log(a);
 	    $.each(a, function() {
 	        if (o[this.name] !== undefined) {
 	            if (!o[this.name].push) {
@@ -51,11 +66,9 @@ var addTraining = function() {
 	            o[this.name] = this.value || '';
 	        }
 	    });
+	    console.log(o);
 	    return o;
 	};
-
-}
-
 var beforeAddTraining = function() {
 
 }
@@ -84,7 +97,6 @@ var updateTime = function() {
 }
 
 var updateSportList = function() {
-	alert("fvdn");
 	$.get("http://localhost:8888/search", function(data) {
 		// displayContent(data);
 
@@ -94,6 +106,7 @@ var updateSportList = function() {
 		for ( var i in response) {
 
 			var objOption = document.createElement("option");
+			console.log(response[i]);
 			objOption.text = response[i].name;
 			objOption.value = response[i].id;
 

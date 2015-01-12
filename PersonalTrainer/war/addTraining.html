@@ -31,7 +31,7 @@
       </nav>
       <!-- ------------------------------------------- HEADER ZONE END ------------------------------------------- -->
     
-      <form id="formAddTraining" role="form" onsubmit="return false;" name="training">
+      <form id="formAddTraining" role="form" onsubmit="return false;" method="post" name="training">
           <div class="row" style="margin-bottom:10px">
               <div class=" col-md-1 col-sm-0 col-xs-0 " ></div>
              <div class=" col-md-2 col-sm-2 col-xs-12 ">
@@ -86,7 +86,7 @@
                         <label for="titleDescription">Ex. Title</label>  
                     </div>
                     <div class=" col-md-6 col-sm-6 col-xs-12 ">
-                        <input type="email" class="form-control" id="titleDescription" placeholder="Enter your exercice title">
+                        <input type="text" class="form-control" id="titleDescription" placeholder="Enter your exercice title" name="exercices[].title>
                     </div>
                     <div class=" col-md-2 col-sm-4 col-xs-12 ">
                         <div class="input-group">
@@ -106,7 +106,7 @@
                 </div>
                 <div class=" col-md-6 col-sm-6 col-xs-12 ">
                     <!--<input type="email" class="form-control" id="exerciceDescription" placeholder="Enter your exercice title">-->
-                    <textarea id="exerciceDescription" class="form-control" rows="4"></textarea>
+                    <textarea id="exerciceDescription" class="form-control" rows="4" name="exercices[].description"></textarea>
                 </div>
                   <div class=" col-md-2 col-sm-4 hidden-xs">
                        <h1 style="text-align: center;"> <span class="glyphicon glyphicon-time"></span> </h1>
@@ -147,8 +147,8 @@
     <div class=" col-md-2 ol-sm-0 col-xs-0 " ></div>
     <div class=" col-md-10 ol-sm-5 col-xs-0 " ></div>
     <div class=" col-md-2 ol-sm-5 col-xs-12 text-center" >
-        <button class="btn btn-danger btn-sm" > <span class="glyphicon glyphicon-remove"></span> </button>
-        <button class="btn btn-success btn-lg" onclick="addTraining()"> <span class="glyphicon glyphicon-ok"></span> </button>
+        <button type="submit" class="btn btn-danger btn-sm" > <span class="glyphicon glyphicon-remove"></span> </button>
+        <button type="submit" class="btn btn-success btn-lg" onclick="addTraining()"> <span class="glyphicon glyphicon-ok"></span> </button>
     </div>
 
  
