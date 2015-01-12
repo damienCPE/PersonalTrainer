@@ -102,11 +102,10 @@ var updateSportList = function() {
 
 		var response = JSON.parse(data);
 		var myselect = document.getElementById('e1');
-		console.log(response[0]);
 		for ( var i in response) {
 
 			var objOption = document.createElement("option");
-			console.log(response[i]);
+			//console.log(response[i]);
 			objOption.text = response[i].name;
 			objOption.value = response[i].id;
 

@@ -33,7 +33,8 @@ public class SearchServlet extends HttpServlet {
         {
         	Map<String, String> innerMap = new HashMap<String, String>();
         	//System.out.println(result.getProperty("name") + " " +result.getProperty("img"));
-    		innerMap.put("name", (String) result.getProperty("name"));
+        	innerMap.put("id", Long.toString(result.getKey().getId()));
+        	innerMap.put("name", (String) result.getProperty("name"));
     		innerMap.put("img", (String) result.getProperty("img"));
     		outerMap.put(result.getKey().toString(), innerMap);
         }
