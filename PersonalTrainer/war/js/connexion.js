@@ -8,12 +8,12 @@ function displayConnexionContent(response) {
 	if (logged == "true") {
 		//console.log("Je suis true (" + response.logoutUrl + ")");
 		Connexion.innerHTML = "<div class=\" col-md-2 col-sm-2 col-xs-2\">"
-			+ "<form class=\"navbar-form navbar-right\" style=\"width: 150%; display:inline-flex;\""
+			+ "<form class=\"navbar-form navbar-right\" style=\"display:inline-flex\""
 			+ "role=\"connexion\">"
 			+ "<p class=\"text-success\" style=\"margin-right: 10px; margin-top:6px;\">" + response.loggedUser + "</p>"
-			+ "<a class=\"btn btn-default\" "
+			+ "<a class=\"btn btn-default glyphicon glyphicon-log-out\" "
 			+ "href=\"http://localhost:8888" + response.logoutUrl
-			+ "\" title=\"Log out\">Log out</a>" + "</form>" + "</div>";
+			+ "\" title=\"Se déconnecter\"></a>" + "</form>" + "</div>";
 	} else {
 		//console.log("Je suis pas true");
 		Connexion.innerHTML = "<div class=\" col-md-2 col-sm-2 col-xs-2\">"
