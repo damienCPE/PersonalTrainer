@@ -31,12 +31,11 @@ public class ConnexionServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		boolean logged = false;
-		String logoutURL = "", loginURLGoogle = "", loginURLOpenID = "", loginURLYahoo = "";
+		String logoutURL = "", loginURLGoogle = "", loginURLOpenID = "", loginURLYahoo = "", loggedUser = "";
 		Map<String, String> loginInf = new HashMap<String, String>();
 
 		UserService userService = UserServiceFactory.getUserService();
-		User user = userService.getCurrentUser(); // or
-													// request.getUserPrincipal()
+		User user = userService.getCurrentUser(); // or request.getUserPrincipal()
 		Set<String> attributes = new HashSet();
 
 		response.setContentType("text/html");
@@ -50,6 +49,7 @@ public class ConnexionServlet extends HttpServlet {
 			 * "\">sign out</a>]");
 			 */
 			// logoutURL = userService.createLogoutURL(request.getRequestURI());
+			loggedUser = user.getEmail();
 			logoutURL = userService
 					.createLogoutURL("/search.html");
 			logged = true;
@@ -86,6 +86,7 @@ public class ConnexionServlet extends HttpServlet {
 		loginInf.put("loginUrlGoogle", loginURLGoogle);
 		loginInf.put("loginUrlYahoo", loginURLYahoo);
 		loginInf.put("loginUrlOpenId", loginURLOpenID);
+		loginInf.put("loggedUser", loggedUser);
 		response.setContentType("text/plain");
 		response.getWriter().println(new JSONObject(loginInf));
 	}

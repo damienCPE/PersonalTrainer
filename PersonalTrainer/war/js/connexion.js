@@ -6,15 +6,19 @@ function displayConnexionContent(response) {
 
 	console.log(logged);
 	if (logged == "true") {
-		console.log("Je suis true (" + response.logoutUrl + ")");
-		Connexion.innerHTML = "<a class=\"btn btn-lg\" "
-				+ "href=\"http://localhost:8888" + response.logoutUrl
-				+ "\" title=\"Log out\">Log out</a>";
-	} else {
-		console.log("Je suis pas true");
+		//console.log("Je suis true (" + response.logoutUrl + ")");
 		Connexion.innerHTML = "<div class=\" col-md-2 col-sm-2 col-xs-2\">"
-				+ "<form class=\"navbar-form navbar-left\" style=\"width: 100%\""
-				+ "role=\"search\">"
+			+ "<form class=\"navbar-form navbar-right\" style=\"width: 150%; display:inline-flex;\""
+			+ "role=\"connexion\">"
+			+ "<p class=\"text-success\" style=\"margin-right: 10px; margin-top:6px;\">" + response.loggedUser + "</p>"
+			+ "<a class=\"btn btn-default\" "
+			+ "href=\"http://localhost:8888" + response.logoutUrl
+			+ "\" title=\"Log out\">Log out</a>" + "</form>" + "</div>";
+	} else {
+		//console.log("Je suis pas true");
+		Connexion.innerHTML = "<div class=\" col-md-2 col-sm-2 col-xs-2\">"
+				+ "<form class=\"navbar-form navbar-right\" style=\"width: 100%;\""
+				+ "role=\"connexion\">"
 				+ "<a class=\"btn btn-lg btn-social-icon btn-google-plus\""
 				+ "href=\""+ response.loginUrlGoogle +"\""
 				+ "title=\"Sign in with Google Plus\" rel=\"nofollow\"> <i "
