@@ -6,11 +6,11 @@ var updateNewsRssList = function() {
 		var newsRsslist = document.getElementById("newsRssList");
 		newsRsslist.innerHTML = "";
 		for ( var i in response) {
-			newsRsslist.innerHTML += "<p>"+
-			"From " + "<a href=\"response[i].link\">"+response[i].link +"</a>" +
-			response[i].title +
-			response[i].description +
-			"</p>"
+			newsRsslist.innerHTML += "<p>" + "From " + "<a href=\""
+					+ response[i].link + "\" target=\"_blank\">"
+					+ response[i].link + "</a>" + "</br >" 
+					+ response[i].title	+ "</br >"
+					+ response[i].description + "</br >" + "</p>"
 		}
 	})
 };

@@ -45,8 +45,8 @@ public class NewsRSSServlet extends HttpServlet {
 				if (currentNode.getNodeType() == Node.ELEMENT_NODE) {
 					JSONObject currentNews = new JSONObject();
 					Element e = (Element) currentNode;
-					/*currentNews.put("link", e.getElementsByTagName("link")
-							.item(0).getTextContent());*/
+					currentNews.put("link", e.getElementsByTagName("link")
+							.item(0).getTextContent());
 					currentNews.put("title", e.getElementsByTagName("title")
 							.item(0).getTextContent());
 					currentNews.put("description",
