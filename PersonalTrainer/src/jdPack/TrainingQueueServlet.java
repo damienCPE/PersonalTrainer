@@ -17,7 +17,7 @@ import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
 @SuppressWarnings("serial")
 public class TrainingQueueServlet extends HttpServlet {
-	public void doGet(HttpServletRequest req, HttpServletResponse resp)
+	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		
 		Map<String, Object> data = new HashMap<String, Object>();
@@ -65,10 +65,11 @@ public class TrainingQueueServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
-	    System.out.println(req.getParameter("training"));
+	    //System.out.println(req.getParameter("training"));
 	    JSONObject json;
 		try {
 			json = new JSONObject(req.getParameter("training"));
+			System.out.println("trainingQueue json");
 			System.out.println(json);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

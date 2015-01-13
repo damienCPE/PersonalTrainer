@@ -27,7 +27,8 @@ public class AddTrainingServlet extends HttpServlet {
 			try {
 				JSONObject json = new JSONObject(req.getParameter("training"));
 				//
-				json = json.getJSONObject("training");
+				//json = json.getJSONObject("training");
+				System.out.println("addTraining json");
 				System.out.println(json);
 				String title = json.getString("title");
 				String description = json.getString("description");
@@ -52,7 +53,7 @@ public class AddTrainingServlet extends HttpServlet {
 						String exerciceDescription = exercice
 								.getString("description");
 						int time = exercice.getInt("time");
-						int repetitions = exercice.getInt("repetitions");
+						int repetitions = exercice.getInt("repetition");
 
 						if (exerciceTitle == null
 								|| exerciceDescription == null)
