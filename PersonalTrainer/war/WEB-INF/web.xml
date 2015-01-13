@@ -44,6 +44,24 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>SearchPlan</servlet-name>
+		<servlet-class>jdPack.SearchPlanServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchPlan</servlet-name>
+		<url-pattern>/searchPlan</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SearchExercise</servlet-name>
+		<servlet-class>jdPack.SearchExerciseServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchExercise</servlet-name>
+		<url-pattern>/searchExercise</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>Sports</servlet-name>
 		<servlet-class>jdPack.SportsServlet</servlet-class>
 	</servlet>

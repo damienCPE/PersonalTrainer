@@ -12,14 +12,15 @@
 <link href="css/style.css" rel="stylesheet">
 
 </head>
-<body>
+<body onload="getResultData()">
 
 	<!-- ------------------------------------------- HEADER ZONE ------------------------------------------- -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class=" col-md-10 col-sm-10 col-xs-10 ">
-			<form id="searchForm" class="navbar-form navbar-left" style="width: 100%" role="search">
+			<form class="navbar-form navbar-left" style="width: 100%"
+				role="search">
 				<div class="form-group" style="width: 90%">
-					<input id="searchFilter" name="searchValue" type="text" style="width: 100%" class="form-control"
+					<input type="text" style="width: 100%" class="form-control"
 						placeholder="Rechercher">
 				</div>
 				<button type="submit"
@@ -33,10 +34,14 @@
 	<!-- ------------------------------------------- HEADER ZONE END ------------------------------------------- -->
 
 	<div class=" col-md-12 col-sm-12 col-xs-12" style="margin-top: 80px">
-		<h3>Vos domaines sportifs</h3>
+		<h3>Search results</h3>
 	</div>
-
-	<div id="results"></div>
+	
+	<h4>Training plans</h4>
+	<div id="plans-results"></div>
+	
+	<h4>Exercises</h4>
+	<div id="exercises-results"></div>
 
 	<!-- ------------------------------------------- FOOTER ZONE ------------------------------------------- -->
 	<nav class="navbar navbar-inverse navbar-fixed-bottom"
@@ -56,7 +61,6 @@
 
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.js"></script>
-	<script src="js/sports.js"></script>
 	<script src="js/connexion.js"></script>
 	<script src="js/search.js"></script>
 </body>
