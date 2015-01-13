@@ -67,4 +67,6 @@ function getResultData(){
 	        	+ "</div>";
 		}
 	});
+	
+	updateNewsRssList();
 }
