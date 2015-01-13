@@ -30,7 +30,7 @@ public class SearchExerciseServlet extends HttpServlet {
 		Map<String,Map<String, String>> outerMap = new LinkedHashMap<String, Map<String, String>>();
 
 		String paramFilter = request.getParameter("filter");
-		System.out.println(paramFilter);
+		//System.out.println(paramFilter);
 
 		// Get the Datastore Service
 		DatastoreService datastore = DatastoreServiceFactory
@@ -48,7 +48,7 @@ public class SearchExerciseServlet extends HttpServlet {
         for (Entity result : pq.asIterable())
         {
         	Map<String, String> innerMap = new HashMap<String, String>();
-        	System.out.println(result.getProperty("title") + " " +result.getProperty("description"));
+        	//System.out.println(result.getProperty("title") + " " +result.getProperty("description"));
         	innerMap.put("id", Long.toString(result.getKey().getId()));
         	innerMap.put("title", (String) result.getProperty("title"));
     		innerMap.put("description", (String) result.getProperty("description"));

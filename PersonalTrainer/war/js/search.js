@@ -20,7 +20,7 @@ function getResultData(){
 	//Récupération des "plan"
 	$.get("http://localhost:8888/searchPlan?filter="+filter, function(data) {
 		var counter = 0;
-		console.log(data);
+		//console.log(data);
 		data = JSON.parse(data);
 		planResults = document.getElementById("plans-results");
 		planResults.innerHTML = "";
@@ -45,7 +45,7 @@ function getResultData(){
 	//Récupération des "exercise"
 	$.get("http://localhost:8888/searchExercise?filter="+filter, function(data) {
 		var counter = 0;
-		console.log(data);
+		//console.log(data);
 		data = JSON.parse(data);
 		planResults = document.getElementById("exercises-results");
 		planResults.innerHTML = "";

@@ -35,15 +35,6 @@
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>Search</servlet-name>
-		<servlet-class>jdPack.SearchServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Search</servlet-name>
-		<url-pattern>/search</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
 		<servlet-name>SearchPlan</servlet-name>
 		<servlet-class>jdPack.SearchPlanServlet</servlet-class>
 	</servlet>
