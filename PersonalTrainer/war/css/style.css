@@ -23,6 +23,14 @@
 	margin-left: 20px;
 }
 
+h4 {
+	margin-left:40px;
+}
+
+#plans-results, #exercises-results {
+	margin-left:80px;
+}
+
 html {
 	height: 180%;
 }

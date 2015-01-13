@@ -19,6 +19,7 @@ function getResultData(){
 	  //console.log(filter);
 	//Récupération des "plan"
 	$.get("http://localhost:8888/searchPlan?filter="+filter, function(data) {
+		var counter = 0;
 		console.log(data);
 		data = JSON.parse(data);
 		planResults = document.getElementById("plans-results");
@@ -28,14 +29,22 @@ function getResultData(){
 	    {
 	    	planResults.innerHTML += "<div class=\"row\">"
 	    		+ "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
-	    		+ "<label> " + data[i].title + " </label>"+ "</div>"
+	    		+ "<label><span class=\"glyphicon glyphicon-calendar\"></span> " + data[i].title + " </label>"+ "</div>"
 	    		+ "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
 	        	+ "<label> " + data[i].description + " </label>"+ "</div>"
 	        	+ "</div>";
+	    	counter++;
 	    }
+		if (counter == 0){
+			planResults.innerHTML += "<div class=\"row\">"
+	    		+ "<div class=\"col-md-6 col-sm-6 col-xs-6\">"
+	    		+ "<label> Aucun plan n'a été trouvé </label>"+ "</div>"
+	        	+ "</div>";
+		}
 	});
 	//Récupération des "exercise"
 	$.get("http://localhost:8888/searchExercise?filter="+filter, function(data) {
+		var counter = 0;
 		console.log(data);
 		data = JSON.parse(data);
 		planResults = document.getElementById("exercises-results");
@@ -45,10 +54,17 @@ function getResultData(){
 	    {
 	    	planResults.innerHTML += "<div class=\"row\">"
 	    		+ "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
-	    		+ "<label> " + data[i].title + " </label>"+ "</div>"
+	    		+ "<label><span class=\"glyphicon glyphicon-time\"></span> " + data[i].title + " </label>"+ "</div>"
 	    		+ "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
 	        	+ "<label> " + data[i].description + " </label>"+ "</div>"
 	        	+ "</div>";
+	    	counter++;
 	    }
+		if (counter == 0){
+			planResults.innerHTML += "<div class=\"row\">"
+	    		+ "<div class=\"col-md-6 col-sm-6 col-xs-6\">"
+	    		+ "<label> Aucun exercice n'a été trouvé </label>"+ "</div>"
+	        	+ "</div>";
+		}
 	});
 }
