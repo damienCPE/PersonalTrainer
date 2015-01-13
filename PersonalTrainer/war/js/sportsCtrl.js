@@ -4,7 +4,7 @@ var searchName = element(by.model('comp.name'));
 searchName.clear();
 
 myApp.controller("searchCtrl",function($scope, $http){
-	$http.get('http://localhost:8888/search').
+	$http.get('http://localhost:8888/sports').
 		success(function(data, status, headers, config) {
 		  $scope.sports = data;
 		}).

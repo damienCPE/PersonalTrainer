@@ -4,7 +4,8 @@ function displayConnexionContent(response) {
 	response = JSON.parse(response);
 	var logged = response.login;
 
-	console.log(logged);
+	//console.log(logged);
+	
 	if (logged == "true") {
 		//console.log("Je suis true (" + response.logoutUrl + ")");
 		Connexion.innerHTML = "<div class=\" col-md-2 col-sm-2 col-xs-2\">"

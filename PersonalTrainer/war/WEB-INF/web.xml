@@ -44,6 +44,15 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>Sports</servlet-name>
+		<servlet-class>jdPack.SportsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Sports</servlet-name>
+		<url-pattern>/sports</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>Connexion</servlet-name>
 		<servlet-class>jdPack.ConnexionServlet</servlet-class>
 	</servlet>
