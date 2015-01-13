@@ -128,7 +128,7 @@ var updateTime = function() {
 }
 
 var updateSportList = function() {
-	$.get("http://localhost:8888/search", function(data) {
+	$.get("http://localhost:8888/sports", function(data) {
 		// displayContent(data);
 
 		var response = JSON.parse(data);
