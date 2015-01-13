@@ -10,7 +10,7 @@ function displayConnexionContent(response) {
 		Connexion.innerHTML = "<div class=\" col-md-2 col-sm-2 col-xs-2\">"
 			+ "<form class=\"navbar-form navbar-right\" style=\"display:inline-flex\""
 			+ "role=\"connexion\">"
-			+ "<p class=\"text-info\" style=\"margin-right: 10px; margin-top:6px;\">" + response.loggedUser + "</p>"
+			+ "<p class=\"text-info\" style=\"margin-right: 10px; margin-top:6px;\">" + response.loggedUserEmail + "</p>"
 			+ "<a class=\"btn btn-default glyphicon glyphicon-log-out\" "
 			+ "href=\"http://localhost:8888" + response.logoutUrl
 			+ "\" title=\"Se déconnecter\"></a>" + "</form>" + "</div>";

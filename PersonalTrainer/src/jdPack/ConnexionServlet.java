@@ -31,11 +31,13 @@ public class ConnexionServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		boolean logged = false;
-		String logoutURL = "", loginURLGoogle = "", loginURLOpenID = "", loginURLYahoo = "", loggedUser = "";
+		String logoutURL = "", loginURLGoogle = "", loginURLOpenID = "",
+				loginURLYahoo = "", loggedUserEmail = "";
 		Map<String, String> loginInf = new HashMap<String, String>();
 
 		UserService userService = UserServiceFactory.getUserService();
-		User user = userService.getCurrentUser(); // or request.getUserPrincipal()
+		User user = userService.getCurrentUser(); // or
+													// request.getUserPrincipal()
 		Set<String> attributes = new HashSet();
 
 		response.setContentType("text/html");
@@ -49,9 +51,8 @@ public class ConnexionServlet extends HttpServlet {
 			 * "\">sign out</a>]");
 			 */
 			// logoutURL = userService.createLogoutURL(request.getRequestURI());
-			loggedUser = user.getEmail();
-			logoutURL = userService
-					.createLogoutURL("/search.html");
+			loggedUserEmail = user.getEmail();
+			logoutURL = userService.createLogoutURL("/search.html");
 			logged = true;
 		} else {
 			/*
@@ -62,20 +63,21 @@ public class ConnexionServlet extends HttpServlet {
 			 * providerUrl, attributes); out.println("[<a href=\"" + loginUrl +
 			 * "\">" + providerName + "</a>] "); }
 			 */
-			loginURLGoogle = userService.createLoginURL( "/search.html", null,
+			loginURLGoogle = userService.createLoginURL("/search.html", null,
 					openIdProviders.get("Google"), attributes);
-			loginURLYahoo = userService.createLoginURL( "/search.html", null,
+			loginURLYahoo = userService.createLoginURL("/search.html", null,
 					openIdProviders.get("Yahoo"), attributes);
-			loginURLOpenID = userService.createLoginURL( "/search.html", null,
+			loginURLOpenID = userService.createLoginURL("/search.html", null,
 					openIdProviders.get("MyOpenId.com"), attributes);
 			/*
-			loginURLGoogle = userService.createLoginURL( request.getRequestURI(), null,
-					openIdProviders.get("Google"), attributes);
-			loginURLYahoo = userService.createLoginURL( request.getRequestURI(), null,
-					openIdProviders.get("Yahoo"), attributes);
-			loginURLOpenID = userService.createLoginURL( request.getRequestURI(), null,
-					openIdProviders.get("MyOpenId.com"), attributes);
-			*/
+			 * loginURLGoogle = userService.createLoginURL(
+			 * request.getRequestURI(), null, openIdProviders.get("Google"),
+			 * attributes); loginURLYahoo = userService.createLoginURL(
+			 * request.getRequestURI(), null, openIdProviders.get("Yahoo"),
+			 * attributes); loginURLOpenID = userService.createLoginURL(
+			 * request.getRequestURI(), null,
+			 * openIdProviders.get("MyOpenId.com"), attributes);
+			 */
 			logoutURL = "";
 			logged = false;
 		}
@@ -86,7 +88,7 @@ public class ConnexionServlet extends HttpServlet {
 		loginInf.put("loginUrlGoogle", loginURLGoogle);
 		loginInf.put("loginUrlYahoo", loginURLYahoo);
 		loginInf.put("loginUrlOpenId", loginURLOpenID);
-		loginInf.put("loggedUser", loggedUser);
+		loginInf.put("loggedUserEmail", loggedUserEmail);
 		response.setContentType("text/plain");
 		response.getWriter().println(new JSONObject(loginInf));
 	}
