@@ -1,6 +1,14 @@
 var training = {};
 
-var addTraining = function() {
+$('#formAddTraining').on('submit', function(e) {
+	e.preventDefault();
+
+	if (beforeAddTraining() == -1){
+		alert("il faut au moins un exercice");
+		return false;
+	}
+		
+
 	var jqxhr = $.post("/trainingQueue", {
 		training : JSON.stringify($('#formAddTraining').serializeObject())
 	}, function() {
@@ -12,7 +20,8 @@ var addTraining = function() {
 	}).always(function() {
 		// alert( "finished" );
 	});
-}
+	return false;
+})
 
 $.fn.serializeObject = function() {
 	var a = this.serializeArray();
@@ -33,7 +42,9 @@ $.fn.serializeObject = function() {
 };
 
 var beforeAddTraining = function() {
-
+	if (training["exercices"] === undefined) {
+		return -1;
+	}
 }
 
 var addExercice = function() {

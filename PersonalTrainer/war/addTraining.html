@@ -42,8 +42,8 @@
 	</nav>
 	<!-- ------------------------------------------- HEADER ZONE END ------------------------------------------- -->
 
-	<form id="formAddTraining" role="form" onsubmit="return false;"
-		method="post" name="training">
+	<form id="formAddTraining" role="form" onsubmit="" method="post"
+		name="training">
 		<div class="row" style="margin-bottom: 10px">
 			<div class=" col-md-1 col-sm-0 col-xs-0 "></div>
 			<div class=" col-md-2 col-sm-2 col-xs-12 ">
@@ -51,7 +51,7 @@
 			</div>
 			<div class=" col-md-6 col-sm-6 col-xs-12 ">
 				<input class="form-control" id="inputTitle"
-					placeholder="Enter your Training plan title" name="title">
+					placeholder="Enter your Training plan title" name="title" required>
 			</div>
 			<div class=" col-md-3 col-sm-4 hidden-xs">
 				<div class=" col-md-4 col-sm-4 hidden-xs">
@@ -69,7 +69,7 @@
 			<div class=" col-md-6 col-sm-6 col-xs-12 ">
 				<!--<input type="email" class="form-control" id="inputDescription" placeholder="Enter your Training plan Description">-->
 				<textarea id="inputDescription" class="form-control" rows="4"
-					name="description"></textarea>
+					name="description" required></textarea>
 			</div>
 		</div>
 		<div class="row" style="margin-top: 10px">
@@ -80,7 +80,7 @@
 			<div class=" col-md-6 col-sm-6 col-xs-12 ">
 				<p>
 					<select id="e1" class="select2-container populate"
-						style="width: 100%" name="domaineId">
+						style="width: 100%" name="domaineId" required>
 
 					</select>
 				</p>
@@ -150,10 +150,11 @@
 			<button type="submit" class="btn btn-danger btn-sm">
 				<span class="glyphicon glyphicon-remove"></span>
 			</button>
-			<button type="submit" class="btn btn-success btn-lg"
-				onclick="addTraining()">
-				<span class="glyphicon glyphicon-ok"></span>
-			</button>
+			<input type="submit" value="Submit" class="btn btn-success btn-lg">
+			<!-- 			<button type="submit" class="btn btn-success btn-lg" -->
+			<!-- 				onclick="addTraining()"> -->
+			<!-- 				<span class="glyphicon glyphicon-ok"></span> -->
+			<!-- 			</button> -->
 		</div>
 	</form>
 
