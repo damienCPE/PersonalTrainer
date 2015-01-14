@@ -41,9 +41,16 @@ public class SearchPlanServlet extends HttpServlet {
 					paramFilter);
 		} else {
 			paramFilter = request.getParameter("domaineId");
-			//System.out.println("id = " + paramFilter);
-			exFilter = new FilterPredicate("domaineId", FilterOperator.EQUAL,
-					Long.parseLong(paramFilter));
+			//System.out.println("domaineId = " + paramFilter);
+			if (paramFilter != null) {
+				exFilter = new FilterPredicate("domaineId", FilterOperator.EQUAL,
+						Long.parseLong(paramFilter));
+			}else{
+				paramFilter = request.getParameter("domaineId");
+				//System.out.println("id = " + paramFilter);
+				exFilter = new FilterPredicate("id", FilterOperator.EQUAL,
+						Long.parseLong(paramFilter));
+			}
 		}
 		
 		// Use class Query to assemble a query

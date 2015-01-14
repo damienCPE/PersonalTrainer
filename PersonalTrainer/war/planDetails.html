@@ -4,15 +4,20 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Personal trainer - Recherche</title>
+<title>Personal training - Training plan details</title>
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/select2.css" rel="stylesheet">
+<link rel="stylesheet" href="css/jquery.flipcountdown.css">
+<link href="css/js.css" rel="stylesheet">
+
 <link href="css/font-awesome.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 
+
 </head>
-<body onload="getResultData()">
+<body onload="loadPlan()">
 
 	<!-- ------------------------------------------- HEADER ZONE ------------------------------------------- -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -35,22 +40,11 @@
 
 	<div class=" col-md-12 col-sm-12 col-xs-12 "
 		style="margin-bottom: 40px; margin-top: 80px">
-		<h3>Training plans</h3>
-		<div id="plans-results"></div>
-	</div>
-
-	<div id="exercises-result-section" class=" col-md-12 col-sm-12 col-xs-12 "
-		style="margin-bottom: 40px">
-		<h3>Exercises</h3>
+		<h3 id="trainingTitle"></h3>
 		<div id="exercises-results"></div>
 	</div>
 
-	<div id="news-result-section" class=" col-md-12 col-sm-12 col-xs-12 "
-		style="margin-bottom: 40px">
-		<h3>News</h3>
-		<div id="newsRssList">
-		</div>
-	</div>
+
 
 	<!-- ------------------------------------------- FOOTER ZONE ------------------------------------------- -->
 	<nav class="navbar navbar-inverse navbar-fixed-bottom"
@@ -73,5 +67,10 @@
 	<script src="js/connexion.js"></script>
 	<script src="js/search.js"></script>
 	<script src="js/results.js"></script>
+	<script src="js/planDetails.js"></script>
+	<script src="js/select2.min.js"></script>
+	<script src="js/jquery.flipcountdown.js"></script>
+	<script id="countdownScript"></script>
+
 </body>
 </html>

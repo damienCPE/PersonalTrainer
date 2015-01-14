@@ -16,6 +16,7 @@ function getResultData() {
 	query = window.location.search.substring(1);
 	var vars = query.split("=");
 	var filter = vars[1];
+	var trainingTitle;
 	// console.log(filter);
 	// Récupération des "plan"
 	if (vars[0] == "filter") {
@@ -31,11 +32,16 @@ function getResultData() {
 							planResults.innerHTML = "";
 
 							for ( var i in data) {
+								trainingTitle = data[i].title;
 								planResults.innerHTML += "<div class=\"row\">"
 										+ "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
-										+ "<label><span class=\"glyphicon glyphicon-calendar\"></span> "
+										+ "<a href=\"planDetails.html?id="
+										+ data[i].id
+										+ "&title="
+										+ trainingTitle
+										+ "\"><span class=\"glyphicon glyphicon-calendar\"></span> "
 										+ data[i].title
-										+ " </label>"
+										+ " </a>"
 										+ "</div>"
 										+ "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
 										+ "<label> " + data[i].description
@@ -64,9 +70,13 @@ function getResultData() {
 							for ( var i in data) {
 								planResults.innerHTML += "<div class=\"row\">"
 										+ "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
-										+ "<label><span class=\"glyphicon glyphicon-time\"></span> "
+										+ "<a href=\"planDetails.html?id="
+										+ data[i].trainingId
+										+ "&title="
+										+ trainingTitle
+										+ "\"><span class=\"glyphicon glyphicon-time\"></span> "
 										+ data[i].title
-										+ " </label>"
+										+ " </a>"
 										+ "</div>"
 										+ "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
 										+ "<label> " + data[i].description
@@ -94,11 +104,16 @@ function getResultData() {
 							planResults.innerHTML = "";
 
 							for ( var i in data) {
+								trainingTitle = data[i].title;
 								planResults.innerHTML += "<div class=\"row\">"
 										+ "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
-										+ "<label><span class=\"glyphicon glyphicon-calendar\"></span> "
+										+ "<a href=\"planDetails.html?id="
+										+ data[i].id
+										+ "&title="
+										+ trainingTitle
+										+ "\"><span class=\"glyphicon glyphicon-calendar\"></span> "
 										+ data[i].title
-										+ " </label>"
+										+ " </a>"
 										+ "</div>"
 										+ "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
 										+ "<label> " + data[i].description

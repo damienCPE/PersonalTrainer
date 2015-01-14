@@ -12,7 +12,7 @@ function displaySportsContent(response)
     		if (counter != 0){
     			results.innerHTML += "</div>";
     		}
-    		results.innerHTML += "<div class= \"col-md-12 col-sm-12 col-xs-12\" style=\"margin-bottom:80px\">";
+    		results.innerHTML += "<div class= \"row\" style=\"margin-bottom:80px;\">";
     	}
     	results.innerHTML += "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
     		+ "<button onclick=\"displaySport("+response[i].id+")\" class=\"btn btn-default btn-lg img-thumbnail\">"
