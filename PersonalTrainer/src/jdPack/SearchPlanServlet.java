@@ -40,7 +40,7 @@ public class SearchPlanServlet extends HttpServlet {
 			exFilter = new FilterPredicate("title", FilterOperator.EQUAL,
 					paramFilter);
 		} else {
-			paramFilter = request.getParameter("id");
+			paramFilter = request.getParameter("domaineId");
 			//System.out.println("id = " + paramFilter);
 			exFilter = new FilterPredicate("domaineId", FilterOperator.EQUAL,
 					Long.parseLong(paramFilter));

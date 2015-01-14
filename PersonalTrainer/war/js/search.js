@@ -81,41 +81,45 @@ function getResultData() {
 							}
 						});
 		updateNewsRssList();
-	}else{
+	} else {
 		$
-		.get(
-				"http://localhost:8888/searchPlan?id=" + filter,
-				function(data) {
-					var counter = 0;
-					// console.log(data);
-					data = JSON.parse(data);
-					planResults = document
-							.getElementById("plans-results");
-					planResults.innerHTML = "";
+				.get(
+						"http://localhost:8888/searchPlan?domaineId=" + filter,
+						function(data) {
+							var counter = 0;
+							// console.log(data);
+							data = JSON.parse(data);
+							planResults = document
+									.getElementById("plans-results");
+							planResults.innerHTML = "";
 
-					for ( var i in data) {
-						planResults.innerHTML += "<div class=\"row\">"
-								+ "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
-								+ "<label><span class=\"glyphicon glyphicon-calendar\"></span> "
-								+ data[i].title
-								+ " </label>"
-								+ "</div>"
-								+ "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
-								+ "<label> " + data[i].description
-								+ " </label>" + "</div>" + "</div>";
-						counter++;
-					}
-					if (counter == 0) {
-						planResults.innerHTML += "<div class=\"row\">"
-								+ "<div class=\"col-md-6 col-sm-6 col-xs-6\">"
-								+ "<label> Aucun plan n'a été trouvé </label>"
-								+ "</div>" + "</div>";
-					}
-				});
+							for ( var i in data) {
+								planResults.innerHTML += "<div class=\"row\">"
+										+ "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
+										+ "<label><span class=\"glyphicon glyphicon-calendar\"></span> "
+										+ data[i].title
+										+ " </label>"
+										+ "</div>"
+										+ "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
+										+ "<label> " + data[i].description
+										+ " </label>" + "</div>" + "</div>";
+								counter++;
+							}
+							if (counter == 0) {
+								planResults.innerHTML += "<div class=\"row\">"
+										+ "<div class=\"col-md-6 col-sm-6 col-xs-6\">"
+										+ "<label> Aucun plan n'a été trouvé </label>"
+										+ "</div>" + "</div>";
+							}
+						});
+		element = document.getElementById("exercises-result-section");
+		element.parentNode.removeChild(element);
+		element = document.getElementById("news-result-section");
+		element.parentNode.removeChild(element);
 	}
 }
 
-function displaySport(id) {
-	// console.log(id);
-	window.location.href = 'results.html?id=' + id;
+function displaySport(domainId) {
+	// console.log(domainId);
+	window.location.href = 'results.html?domaineId=' + domainId;
 }
