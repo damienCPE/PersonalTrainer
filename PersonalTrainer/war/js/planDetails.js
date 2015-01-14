@@ -33,10 +33,11 @@ function loadPlan() {
 						for ( var i in data) {
 							// console.log(data[i].time);
 							time = parseInt(data[i].time);
-							console.log("set times[" + counter + "] = " + time);
+							// console.log("set times[" + counter + "] = " +
+							// time);
 							times[counter] = time;
-							console.log("Verif : times[" + counter + "] = "
-									+ times[counter]);
+							// console.log("Verif : times[" + counter + "] = " +
+							// times[counter]);
 							h = Math.floor(time / 3600);
 							m = Math.floor((time % 3600) / 60);
 							s = (time % 60);
@@ -82,17 +83,29 @@ function loadPlan() {
 									+ "</div>"
 									+ "<div class=\"col-md-12 col-sm-12 col-xs-12 centered\">"
 									+ "<div class=\"btn-group\">"
-									+ "<button type=\"button\" class=\"btn btn-default\">"
+									+ "<button type=\"button\" class=\"btn btn-default\""
+									+ " onclick=\"startCountdown"
+									+ counter
+									+ "()\">"
 									+ "<span class=\"glyphicon glyphicon-play\"></span>"
 									+ "</button>"
-									+ "<button type=\"button\" class=\"btn btn-default\">"
+									+ "<button type=\"button\" class=\"btn btn-default\""
+									+ " onclick=\"breakCountdown"
+									+ counter
+									+ "()\">"
 									+ "<span class=\"glyphicon glyphicon-pause\"></span>"
 									+ "</button>"
-									+ "<button type=\"button\" class=\"btn btn-default\">"
+									+ "<button type=\"button\" class=\"btn btn-default\""
+									+ " onclick=\"stopCountdown"
+									+ counter
+									+ "()\">"
 									+ "<span class=\"glyphicon glyphicon-stop\"></span>"
 									+ "</button>"
 									+ "</div>"
-									+ "<button type=\"button\" class=\"btn btn-default\">"
+									+ "<button type=\"button\" class=\"btn btn-default\""
+									+ " onclick=\"reinitCountdown"
+									+ counter
+									+ "()\">"
 									+ "<span class=\"glyphicon glyphicon-repeat\"></span>"
 									+ "</button>"
 									+ "</div>"
@@ -124,6 +137,21 @@ function loadPlan() {
 
 function essai(counter, times) {
 	var code = "";
+	// Ajout du timer à zéro pour l'auto stop
+	code += "var date=new Date('2.01.2015 00:00:00');"
+			+ "var time=date.getTime();";
+	// Ajout des variables des compteurs
+	for (i = 1; i < counter; i++) {
+		time = times[i];
+		h = Math.floor(time / 3600);
+		m = Math.floor((time % 3600) / 60);
+		s = (time % 60);
+		// console.log(h+":"+m+":"+s);
+		code += "var date" + i + " = new Date('2.01.2015 " + h + ":" + m + ":"
+				+ s + "');" + "var time" + i + " = date" + i + ".getTime();"
+				+ "var countdown" + i + "=true;" + "initTime" + i + "=date" + i
+				+ ".getTime();";
+	}
 	code += "$(document).ready(function() {";
 	for (i = 1; i < counter; i++) {
 		time = times[i];
@@ -131,14 +159,24 @@ function essai(counter, times) {
 		m = Math.floor((time % 3600) / 60);
 		s = (time % 60);
 		// console.log(h+":"+m+":"+s);
-		code += "date" + i + " = new Date('2.01.2015 " + h + ":" + m + ":" + s
-				+ "');" + "time" + i + " = date" + i + ".getTime();"
-				+ "$(\"#flipcountdownbox" + i + "\").flipcountdown({"
-				+ "speedFlip : 60," + "tick : function() {"
-				+ "currentTime = time" + i + " - 1000;" + "time" + i + " = currentTime;"
-				+ "date" + i + " = new Date(currentTime);" + "return date" + i + ";" + "}" + "});";
+		// Ajout de la fonction de décompte
+		code += "$(\"#flipcountdownbox" + i + "\").flipcountdown({"
+				+ "speedFlip : 60," + "tick : function() {" + "if (time" + i
+				+ " >= time && countdown" + i + " == true){" + "if(time" + i
+				+ " == time)" + "currentTime = time" + i + ";"
+				+ "else currentTime = time" + i + " - 1000;" + "time" + i
+				+ " = currentTime;" + "date" + i + " = new Date(currentTime);"
+				+ "return date" + i + ";}}" + "});";
 	}
 	code += "});";
+	for (i = 1; i < counter; i++) {
+		// Ajout des fonctions start/break/stop/reinit
+		code += "function stopCountdown" + i + "(){" + "time" + i + "=time;}"
+				+ "function breakCountdown" + i + "(){" + "countdown" + i
+				+ " = false;}" + "function startCountdown" + i + "(){"
+				+ "countdown" + i + " = true;}" + "function reinitCountdown"
+				+ i + "(){" + "time" + i + "=initTime" + i + ";" + "countdown" + i + "=true;}";
+	}
 	countdownScript = document.getElementById("countdownScript");
 	countdownScript.innerHTML = code;
 };
