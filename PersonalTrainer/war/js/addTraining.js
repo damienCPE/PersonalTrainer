@@ -3,11 +3,10 @@ var training = {};
 $('#formAddTraining').on('submit', function(e) {
 	e.preventDefault();
 
-	if (beforeAddTraining() == -1){
+	if (beforeAddTraining() == -1) {
 		alert("il faut au moins un exercice");
 		return false;
 	}
-		
 
 	var jqxhr = $.post("/trainingQueue", {
 		training : JSON.stringify($('#formAddTraining').serializeObject())
@@ -57,9 +56,11 @@ var addExercice = function() {
 					"title" : document.getElementById('titleDescription').value,
 					"description" : document
 							.getElementById('exerciceDescription').value,
-					"time" : document.getElementById('timeHours').value
-							+ document.getElementById('timeMinutes').value
-							+ document.getElementById('timeSecondes').value,
+					"time" : parseInt(document.getElementById('timeHours').value)
+							* 3600
+							+ parseInt(document.getElementById('timeMinutes').value)
+							* 60
+							+ parseInt(document.getElementById('timeSecondes').value),
 					"repetition" : 1
 				}
 						|| '');
@@ -67,9 +68,11 @@ var addExercice = function() {
 		training["exercices"] = [ {
 			"title" : document.getElementById('titleDescription').value,
 			"description" : document.getElementById('exerciceDescription').value,
-			"time" : document.getElementById('timeHours').value
-					+ document.getElementById('timeMinutes').value
-					+ document.getElementById('timeSecondes').value,
+			"time" : parseInt(document.getElementById('timeHours').value)
+					* 3600
+					+ parseInt(document.getElementById('timeMinutes').value)
+					* 60
+					+ parseInt(document.getElementById('timeSecondes').value),
 			"repetition" : 1
 		} ]
 				|| '';
@@ -84,7 +87,6 @@ var updateExercice = function() {
 		return;
 	var exercicelist = document.getElementById("exerciceList");
 	exercicelist.innerHTML = "";
-	11
 	$
 			.each(
 					training["exercices"],
@@ -113,6 +115,7 @@ var updateExercice = function() {
 								+ "<span class=\"glyphicon glyphicon-remove\"></span>"
 								+ "</button>" + "</td>" + "</tr>" + "<tr>";
 					});
+	updateTime();
 }
 
 var removeExercice = function(index) {
@@ -121,7 +124,19 @@ var removeExercice = function(index) {
 }
 
 var updateTime = function() {
-
+	var totalTime = document.getElementById("totalTimeValue");
+	totalTime.innerHTML = "";
+	var totalExerciceTime = 0;
+	totalExerciceTime = parseInt(totalExerciceTime);
+	$.each(training["exercices"], function(index, value) {
+		totalExerciceTime += parseInt(value.time);
+	});
+	var totalHour = (totalExerciceTime / 3600 >> 0);
+	var totalMinutes = ((totalExerciceTime - (totalHour * 3600)) / 60 >> 0);
+	var totalSecondes = totalExerciceTime - (totalHour * 3600)
+			- (totalMinutes * 60);
+	totalTime.innerHTML = "<span class=\"glyphicon glyphicon-time\"></span> "
+			+ totalHour + ":" + totalMinutes + ":" + totalSecondes + "";
 }
 
 var updateSportList = function() {
