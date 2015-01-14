@@ -15,7 +15,7 @@ function displaySportsContent(response)
     		results.innerHTML += "<div class= \"col-md-12 col-sm-12 col-xs-12\" style=\"margin-bottom:80px\">";
     	}
     	results.innerHTML += "<div class=\"col-md-3 col-sm-3 col-xs-3\">"
-    		+ "<button type=\"submit\" class=\"btn btn-default btn-lg img-thumbnail\">"
+    		+ "<button onclick=\"displaySport("+response[i].id+")\" class=\"btn btn-default btn-lg img-thumbnail\">"
         	+ "<img src=\"img/"+ response[i].img +".jpg\" class= \"img-thumbnail\" alt=\"Picture not found\" />"
         	+ "</button>"
         	+ "<label> "+ response[i].name +" </label>"
