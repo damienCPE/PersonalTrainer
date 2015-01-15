@@ -5,16 +5,6 @@
 
 	<!-- Servlets -->
 	<servlet>
-		<servlet-name>userRegistration</servlet-name>
-		<servlet-class>servlet.communication.UserRegistrationServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>userRegistration</servlet-name>
-		<url-pattern>/register</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
 		<servlet-name>initS</servlet-name>
 		<servlet-class>jdPack.InitServlet</servlet-class>
 	</servlet>

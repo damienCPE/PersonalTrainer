@@ -10,7 +10,7 @@ function loadPlan() {
 	var counter = 0;
 
 	trainingTitleH3 = document.getElementById("trainingTitle");
-	trainingTitleH3.innerHTML = "Training plan : "
+	trainingTitleH3.innerHTML =  "Détails du lan d'entrainement "
 			+ decodeURIComponent(trainingTitle);
 	// Chargement des exercices
 	$
