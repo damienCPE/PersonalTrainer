@@ -34,3 +34,23 @@ h4 {
 html {
 	height: 180%;
 }
+
+.Bandeau {
+	width: 100%;
+	background-color: grey;
+	margin-top: 10%;
+	height: 21%;
+}
+
+.ContenuBandeau {
+	padding-top : 1%;
+	margin-left: 31%;
+}
+
+.TexteAccueil {
+	padding-top : 3%;
+}
+
+.BoutonAccueil {
+	padding-top: 6%;
+}
