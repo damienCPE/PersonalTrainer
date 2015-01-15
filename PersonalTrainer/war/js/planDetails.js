@@ -10,13 +10,12 @@ function loadPlan() {
 	var counter = 0;
 
 	trainingTitleH3 = document.getElementById("trainingTitle");
-	trainingTitleH3.innerHTML =  "Détails du lan d'entrainement "
+	trainingTitleH3.innerHTML = "Détails du lan d'entrainement "
 			+ decodeURIComponent(trainingTitle);
 	// Chargement des exercices
 	$
 			.get(
-					"http://localhost:8888/searchExercise?trainingId="
-							+ trainingId,
+					"/searchExercise?trainingId=" + trainingId,
 					function(data) {
 						var times;
 						counter = 1;
@@ -175,7 +174,8 @@ function essai(counter, times) {
 				+ "function breakCountdown" + i + "(){" + "countdown" + i
 				+ " = false;}" + "function startCountdown" + i + "(){"
 				+ "countdown" + i + " = true;}" + "function reinitCountdown"
-				+ i + "(){" + "time" + i + "=initTime" + i + ";" + "countdown" + i + "=true;}";
+				+ i + "(){" + "time" + i + "=initTime" + i + ";" + "countdown"
+				+ i + "=true;}";
 	}
 	countdownScript = document.getElementById("countdownScript");
 	countdownScript.innerHTML = code;

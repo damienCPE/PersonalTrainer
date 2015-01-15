@@ -140,7 +140,7 @@ var updateTime = function() {
 }
 
 var updateSportList = function() {
-	$.get("http://localhost:8888/sports", function(data) {
+	$.get("/sports", function(data) {
 		// displayContent(data);
 
 		var response = JSON.parse(data);

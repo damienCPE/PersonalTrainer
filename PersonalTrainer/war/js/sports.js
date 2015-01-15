@@ -24,7 +24,7 @@ function displaySportsContent(response)
     }
 }
 
-$.get("http://localhost:8888/sports", function(data) {
+$.get("/sports", function(data) {
 //	console.log("sports.js");
 	displaySportsContent(data);
 });

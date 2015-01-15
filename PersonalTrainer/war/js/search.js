@@ -22,7 +22,7 @@ function getResultData() {
 	if (vars[0] == "filter") {
 		$
 				.get(
-						"http://localhost:8888/searchPlan?filter=" + filter,
+						"/searchPlan?filter=" + filter,
 						function(data) {
 							var counter = 0;
 							// console.log(data);
@@ -58,7 +58,7 @@ function getResultData() {
 		// Récupération des "exercise"
 		$
 				.get(
-						"http://localhost:8888/searchExercise?filter=" + filter,
+						"/searchExercise?filter=" + filter,
 						function(data) {
 							var counter = 0;
 							// console.log(data);
@@ -94,7 +94,7 @@ function getResultData() {
 	} else {
 		$
 				.get(
-						"http://localhost:8888/searchPlan?domaineId=" + filter,
+						"/searchPlan?domaineId=" + filter,
 						function(data) {
 							var counter = 0;
 							// console.log(data);

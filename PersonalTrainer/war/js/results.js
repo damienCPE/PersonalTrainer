@@ -1,5 +1,5 @@
 var updateNewsRssList = function() {
-	$.get("http://localhost:8888/newsRSS", function(data) {
+	$.get("/newsRSS", function(data) {
 		// displayContent(data);
 
 		var response = JSON.parse(data);

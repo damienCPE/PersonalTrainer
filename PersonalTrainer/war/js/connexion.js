@@ -13,7 +13,7 @@ function displayConnexionContent(response) {
 			+ "role=\"connexion\">"
 			+ "<p class=\"text-info\" style=\"margin-right: 10px; margin-top:6px;\">" + response.loggedUserEmail + "</p>"
 			+ "<a class=\"btn btn-default glyphicon glyphicon-log-out\" "
-			+ "href=\"http://localhost:8888" + response.logoutUrl
+			+ "href=\"" + response.logoutUrl
 			+ "\" title=\"Se déconnecter\"></a>" + "</form>" + "</div>";
 	} else {
 		//console.log("Je suis pas true");
@@ -35,7 +35,7 @@ function displayConnexionContent(response) {
 	}
 }
 
-$.get("http://localhost:8888/connexion", function(data) {
+$.get("/connexion", function(data) {
 //	console.log("connexion.js");
 	displayConnexionContent(data);
 });
